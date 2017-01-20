@@ -1,0 +1,10 @@
+type in cmd:
+docker-machine ls
+FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd default') DO %i
+docker run -d -p 8888:8888 --name="docktensorflow" gcr.io/tensorflow/tensorflow
+docker exec -it docktensorflow bash
+
+test python by importing tensorflow
+
+browser:
+192.168.99.100:8888
